@@ -29,6 +29,15 @@ To run the sample app AutoGenGuiChat, do the following (ideally, in your Python 
 * Lightweight, easily customizable and hackable for embedding in your own applications
 * Displays usage stats with total cost and tokens in console (in DEBUG mode)
 
+## Test Prompts
+These prompts are know to work and can be run in the same session:
+* "tell a joke"
+* "write a very short poem"
+* "write a python function to list current directory"
+* "tell another joke"
+* "write a very short story"
+* "summarize conversation so far"
+
 ## Customizing
 There are various methods to customizing these components including:
 * Override AutoGenGuiChat app class and write your own build_autogen_flow() method. This lets you create more advanced AutoGen flow e.g., like adding an engineer, critic, etc..
@@ -61,15 +70,6 @@ There are various methods to customizing these components including:
         },
     ```
 The, open and select AutoGenGuiChat.py tab and hit F5.
-
-## Test Prompts
-These prompts are know to work and can be run one after another -- including:
-* "tell a joke"
-* "write a very short poem"
-* "write a python function to list current directory"
-* "tell another joke"
-* "write a very short story"
-* "summarize conversation so far"
 
 ## Know issues
 * Bug: function calls not displayed in view
