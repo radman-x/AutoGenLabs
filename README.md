@@ -77,5 +77,6 @@ There are various methods to customizing these components including:
 ## Know issues
 * Bug: function calls not displayed in view
 * This produces a warning message like "GroupChat is underpopulated with 2 agents...". This can be safely ignored.
+* Occasionally, the "summarize..." test prompt above is ignored; usually after repeating it again, it works.
 * Numerous standard icons in Panel ChatInterface are not yet implemented: "liking" messages, clear history, etc.
 * Add better documentation

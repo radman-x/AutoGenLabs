@@ -56,7 +56,6 @@ def build_autogen_flow() -> (Tuple[autogen.ConversableAgent, autogen.Conversable
     # Admin (human):
     user_proxy = MyConversableAgent(
         name="Admin",
-        # is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
         is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("exit"),
         system_message="""A human admin. Collaborate with others. Provide approvals, when needed.""",
         code_execution_config=False,
