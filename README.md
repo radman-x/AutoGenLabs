@@ -42,7 +42,7 @@ These prompts are know to work in AutoGenGuiChat and can be run in the same sess
 ## Customizing
 There are various methods to customizing these components including:
 * Override AutoGenGuiChat app class and write your own build_autogen_flow() method. This lets you create more advanced AutoGen flow e.g., like adding an engineer, critic, etc..
-* Hacking the AutoGenGuiChat app class directly, e.g., to customized the build_autogen_flow() method without overriding the class.
+* Hacking the AutoGenGuiChat app class directly, e.g., to customize the build_autogen_flow() method without overriding the class.
 * Hacking the AutoGenChatView component class directly.
 * In the build_autogen_flow() method, you can modify agent system messages, descriptions (ie, used for GroupChat next speaker selection) and avatars. Avatars can use any emoji unicode character such as:
     - Smileys & People : https://emojipedia.org/people/
