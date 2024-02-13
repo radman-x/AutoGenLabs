@@ -56,8 +56,8 @@ def build_autogen_flow() -> (Tuple[autogen.ConversableAgent, autogen.Conversable
     # Admin (human):
     user_proxy = MyConversableAgent(
         name="Admin",
-        is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
-        # is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("exit"),
+        # is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("TERMINATE"),
+        is_termination_msg=lambda x: x.get("content", "").rstrip().endswith("exit"),
         system_message="""A human admin. Collaborate with others. Provide approvals, when needed.""",
         code_execution_config=False,
         human_input_mode="ALWAYS",
@@ -75,22 +75,6 @@ def build_autogen_flow() -> (Tuple[autogen.ConversableAgent, autogen.Conversable
     )
     agents.append(assistant)
     av.update({assistant.name: "💁"})
-
-    # # Critic
-    # critic = autogen.AssistantAgent(
-    #     name="Critic",
-    #     system_message="""Critic. Double check plan, claims, code from other agents and provide feedback. 
-    #     Check whether the plan includes adding verifiable info such as source URL. 
-    #     """,
-    #     # system_message="""You are a critic. You are now in a group chat. You need to complete a task with other participants.
-    #     #     Check the results of others in the group.
-    #     #     Reply "TERMINATE" in the end when everything is done and the use'rs task has been successfully completed.\n""",
-    #     # description="""A critic who checks the results of others in the group.""",
-    #     llm_config=gpt4_config,
-    #     human_input_mode="NEVER",
-    # )
-    # agents.append(critic)
-    # av.update({critic.name: "👨‍⚖️"})
 
     avatar = av
 
