@@ -75,8 +75,9 @@ There are various methods to customizing these components including:
 * Then open and select AutoGenGuiChat.py tab in VSCode and hit F5.
 
 ## Know issues
-* Bug: function calls not displayed in view
+* Function calls are not displayed in view
 * This produces a warning message like "GroupChat is underpopulated with 2 agents...". This can be safely ignored.
 * Occasionally, the "summarize..." test prompt above is ignored; usually after repeating it again, it works.
+* Occasionally, the interaction between the agents is wrong (eg. message sent to Assistant instead of Admin) so no further human input can occur. Get "There is currently no input being awaited." in console.
 * Numerous standard icons in Panel ChatInterface are not yet implemented: "liking" messages, clear history, etc.
 * Add better documentation
