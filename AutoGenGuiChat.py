@@ -22,7 +22,7 @@ log.setLevel(LOGGING_LEVEL)
 config_list = autogen.config_list_from_json(
     "OAI_CONFIG_LIST",
     filter_dict={
-        "model": ["gpt-4-turbo-preview"],   # Change to your desired model.
+        "model": ["gpt-4-turbo-preview"],  # Change to your desired model.
     },
 )
 
@@ -32,24 +32,21 @@ user_proxy = None
 manager = None
 avatar = None
 
+
 class MyConversableAgent(autogen.ConversableAgent):
     async def a_get_human_input(self, prompt: str) -> str:
         return await autogen_chat_view.a_get_human_input(prompt)
 
+
 def print_messages(recipient, messages, sender, config):
-    return autogen_chat_view.print_messages(recipient, messages, sender,
-        avatar, total_usage=manager.get_total_usage())
+    return autogen_chat_view.print_messages(
+        recipient, messages, sender, avatar, total_usage=manager.get_total_usage()
+    )
 
 
-async def delayed_initiate_chat(message):
-    global user_proxy, manager
-    await asyncio.sleep(2)  # Wait for 2 seconds
-    await user_proxy.a_initiate_chat(manager, message=message)  # Now initiate the chat
-
-autogen_chat_view = AutoGenChatView(initiate_chat_fn=delayed_initiate_chat)
-
-
-def build_autogen_flow() -> (Tuple[autogen.ConversableAgent, autogen.ConversableAgent, Dict]):
+def build_autogen_flow() -> (
+    Tuple[autogen.ConversableAgent, autogen.ConversableAgent, Dict]
+):
     agents = []
     av = {}
 
@@ -100,3 +97,10 @@ def build_autogen_flow() -> (Tuple[autogen.ConversableAgent, autogen.Conversable
 
 
 user_proxy, manager, avatar = build_autogen_flow()
+
+async def delayed_initiate_chat(message):
+    global user_proxy, manager
+    await asyncio.sleep(2)  # Wait for 2 seconds
+    await user_proxy.a_initiate_chat(manager, message=message)  # Now initiate the chat
+
+autogen_chat_view = AutoGenChatView(initiate_chat_fn=delayed_initiate_chat)
